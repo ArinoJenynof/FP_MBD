@@ -4,19 +4,20 @@
     session_start();
 
     $id=$_POST['id'];
-    $tipe=$_POST['tipe'];
-    $jenis=$_POST['jenis'];
-    $harga=$_POST['harga'];
-    $deskripsi=$_POST['deskripsi'];
 
-    if($_FILES['image']['type']){
-        $folder="aset/img/";
-        $dir=$folder.$_FILES["image"]["name"];
-        move_uploaded_file($_FILES["image"]["tmp_name"],$dir);
+    if(isset($_POST['jual']))
+    {
+        $ju =$_POST['jual'];
+        $upjul = "CALL update_harga($id,$ju)";
+        mysqli_query($con,$upjul);
     }
+    $be=$_POST['beli'];
+    $jumlah=$_POST['jumlah'];
 
 
-    $con->query("UPDATE hewan SET tipe='$tipe',jenis='$jenis',harga='$harga',deskripsi='$deskripsi',foto='$dir' WHERE id='$id'");
-    header("location: product_admin.php?editproduct=$id");
+    $call_jum="CALL tambah_stock_barang($jumlah,$be,$id)";
+    mysqli_query($con,$call_jum);
+
+    header("location: product_admin.php");
 
 ?>
