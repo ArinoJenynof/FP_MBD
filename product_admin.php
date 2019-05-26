@@ -32,12 +32,6 @@ if(empty($_SESSION["admin"])) {
 				<li class="nav-item">
 					<a class="nav-link" href="product_admin.php">Produk</a>
 				</li>
-				<li class="navbar-nav">
-					<a class="nav-link" href="userpageawal.php">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.php">About Us</a>
-				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="penjtrans.php">Transaksi</a>
 				</li>
@@ -48,41 +42,60 @@ if(empty($_SESSION["admin"])) {
 		</div>
 	</nav>
 
-	<div>
-  <?php
-		require 'dbconnect.php';
-		$penjual = $_SESSION["admin"];
-		$sql = "SELECT b.id_barang, b.nama_barang, b.id_kategori, b.harga_jual, b.jumlah_total FROM barang b 
-		JOIN penjual p ON b.id_penjual = p.id_penjual 
-		WHERE p.nama_penjual = '$penjual' ";
-    $result = mysqli_query($con, $sql);
-     ?>
-     <table class="table table-bordered">
-       <tr>
-       	<th scope="col">Id</th>
-       	<th scope="col">Nama</th>
-       	<th scope="col">Kategori</th>
-       	<th scope="col">Harga</th>
-       	<th scope="col">Jumlah</th>
-        <th scope="col">Options</th>
-       </tr>
-       	<?php  while($product = mysqli_fetch_assoc($result)) { ?>
-      	<tr>
-      		<td> <?php echo $product['id_barang']; ?> </td>
-      		<td> <?php echo $product['nama_barang']; ?> </td>
-      		<td> <?php echo $product['id_kategori']; ?> </td>
-      		<td> <?php echo $product['harga_jual']; ?> </td>
-          <td> <?php echo $product['jumlah_total']; ?> </td>
-      		<td> <a href="edit_admin.php?id= <?php echo $product['id_barang']; ?>">Edit</a> <a> or 
-			  </a> <a href="deleteproduct.php?id= <?php echo $product['id_barang']; ?>" onclick="return confirm('Are you sure to delete this item?')">Delete</a></td>
-      	</tr>
-		
-	    <?php } ?>
-
-		</div>
-
-		<div>
-		</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-9 ">
+				<?php
+					require 'dbconnect.php';
+					$penjual = $_SESSION["admin"];
+					$sql = "SELECT b.id_barang, b.nama_barang, b.id_kategori, b.harga_jual, b.jumlah_total FROM barang b 
+					JOIN penjual p ON b.id_penjual = p.id_penjual 
+					WHERE p.nama_penjual = '$penjual' ";
+					$result = mysqli_query($con, $sql);
+				?>
+				<table class="table table-bordered">
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Nama</th>
+					<th scope="col">Kategori</th>
+					<th scope="col">Harga</th>
+					<th scope="col">Jumlah</th>
+					<th scope="col">Options</th>
+				</tr>
+					<?php  while($product = mysqli_fetch_assoc($result)) { ?>
+					<tr>
+						<td> <?php echo $product['id_barang']; ?> </td>
+						<td> <?php echo $product['nama_barang']; ?> </td>
+						<td> <?php echo $product['id_kategori']; ?> </td>
+						<td> <?php echo $product['harga_jual']; ?> </td>
+						<td> <?php echo $product['jumlah_total']; ?> </td>
+						<td> <a href="edit_admin.php?id= <?php echo $product['id_barang']; ?>">Edit</a> <a> or 
+					</a> <a href="deleteproduct.php?id= <?php echo $product['id_barang']; ?>" onclick="return confirm('Are you sure to delete this item?')">Delete</a></td>
+					</tr>
+					<?php } ?>
+				</table>
+			</div>
+			<div class="col-lg-3 ">
+				<?php
+					$test = "SELECT p.rating_penjual FROM penjual p 
+					WHERE p.nama_penjual = '$penjual' ";
+					$res = mysqli_query($con, $test);
+					$rate = mysqli_fetch_assoc($res);
+					$rating = $rate['rating_penjual'];
+				?>
+					<div class="jumbotron">
+						<h6>Selamat Datang <?php 
+							echo $penjual;
+							?> 
+						</h6>
+						<h6>Rating Anda: <?php 
+							echo $rating;
+							?> 
+						</h6>
+					</div>
+			</div>	
+		</div>			
+	</div>
 
 </body>
 <a class="btn btn-primary center-block" href="addproduct.php">Add New</a>

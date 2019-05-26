@@ -31,13 +31,6 @@
                     <a class="nav-link" href="storepage.php">Store</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="userpageawal.php">Profile</a>
-                </li>
-                </li>
-                    <li class="nav-item">
-                <a class="nav-link" href="about.php">About Us</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>

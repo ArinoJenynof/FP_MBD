@@ -32,12 +32,6 @@ if(empty($_SESSION["user"])) {
 				<li class="nav-item">
 					<a class="nav-link" href="storepage.php">Store</a>
 				</li>
-				<li class="navbar-nav">
-					<a class="nav-link" href="userpageawal.php">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.php">About Us</a>
-				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="pemtrans.php">Transaksi</a>
 				</li>

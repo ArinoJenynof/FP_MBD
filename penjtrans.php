@@ -32,12 +32,6 @@ if(empty($_SESSION["admin"])) {
                 <li class="nav-item">
 					<a class="nav-link" href="product_admin.php">Produk</a>
 				</li>
-				<li class="navbar-nav">
-					<a class="nav-link" href="userpageawal.php">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.php">About Us</a>
-				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="penjtrans.php">Transaksi</a>
 				</li>
@@ -62,7 +56,7 @@ if(empty($_SESSION["admin"])) {
      <table class="table table-bordered">
        <tr>
        	<th scope="col">Id</th>
-       	<th scope="col">Nama Penjual</th>
+       	<th scope="col">Nama Pembeli</th>
        	<th scope="col">Harga Total</th>
        	<th scope="col">Tanggal Transaksi</th>
        	<th scope="col">Status</th>

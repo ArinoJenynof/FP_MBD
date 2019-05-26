@@ -36,9 +36,6 @@ if(!empty($_SESSION["admin"])) {
 				<li class="nav-item">
 					<a class="nav-link" href="storepage.php">Store</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.php">About</a>
-				</li>
 			</ul>
 		</div>
 	</nav>
@@ -75,21 +72,24 @@ if(!empty($_SESSION["admin"])) {
 
 		$table=mysqli_query($con,$sql);
         while($row=mysqli_fetch_assoc($table)) {
-				$tipe=$row["tipe_barang"];
-				$id=$row['id_barang'];
-				$penjual=$row['nama_penjual'];
-                $nama=$row["nama_barang"];
-                $harga=$row["harga_jual"];
-                $jumlah=$row["jumlah_total"];
+		$rating=$row["rating_penjual"];
+		$tipe=$row["tipe_barang"];
+		$id=$row['id_barang'];
+		$penjual=$row['nama_penjual'];
+		$nama=$row["nama_barang"];
+		$harga=$row["harga_jual"];
+		$jumlah=$row["jumlah_total"];
+		$PID = $row['id_penjual'];
 		echo  '			
 			<div class="col-lg-4 col-md-6 mb-4 tofil" id='.$tipe.'>
 				<div class="card h-100">
 					<div class="card-body">
 						<h4 class="card-title">
-							<a href="?'.$nama.'">'.$nama.'</a>
+							<a href="?='.$nama.'">'.$nama.'</a>
 						</h4>
-						<h5>Rp.'.$harga.'</h5>
-						<h5>'.$penjual.'</h5>
+						<h5>Penjual: '.$penjual.'</h5>
+						<h5>Rating Penjual: '.$rating.'</h5>
+						<h5>Harga: Rp. '.$harga.'</h5>
 					</div>
 				</div>
 			</div>

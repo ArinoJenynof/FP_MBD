@@ -36,12 +36,6 @@
                 <li class="nav-item">
 					<a class="nav-link" href="product_admin.php">Produk</a>
 				</li>
-				<li class="navbar-nav">
-					<a class="nav-link" href="userpageawal.php">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.php">About Us</a>
-				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="penjtrans.php">Transaksi</a>
 				</li>

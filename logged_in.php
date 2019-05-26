@@ -34,11 +34,6 @@ if(empty($_SESSION["user"])) {
 					<a class="nav-link" href="storepage.php">Store</a>
 				</li>
 				<li class="navbar-nav">
-					<a class="nav-link" href="userpageawal.php">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.php">About Us</a>
-				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="pemtrans.php">Transaksi</a>
 				</li>
@@ -81,6 +76,7 @@ if(empty($_SESSION["user"])) {
 
 				$table=mysqli_query($con,$sql);
 				while($row=mysqli_fetch_assoc($table)) {
+						$rating=$row["rating_penjual"];
 						$tipe=$row["tipe_barang"];
 						$id=$row['id_barang'];
 						$penjual=$row['nama_penjual'];
@@ -95,8 +91,9 @@ if(empty($_SESSION["user"])) {
 								<h4 class="card-title">
 									<a href="?='.$nama.'">'.$nama.'</a>
 								</h4>
-								<h5>'.$penjual.'</h5>
-								<h5>Rp. '.$harga.'</h5>
+								<h5>Penjual: '.$penjual.'</h5>
+								<h5>Rating Penjual: '.$rating.'</h5>
+								<h5>Harga: Rp. '.$harga.'</h5>
 								
 							</div>
 
@@ -124,12 +121,12 @@ if(empty($_SESSION["user"])) {
 	   	<div class="col-lg-3">
 			
 			<div class="jumbotron">
-			<h6>Selamat Datang <?php 
-				$curr_uname = $_SESSION["user"];
-				echo $curr_uname;
-				?> 
-			</h6>
-    		</div>
+				<h6>Selamat Datang <?php 
+					$curr_uname = $_SESSION["user"];
+					echo $curr_uname;
+					?> 
+				</h6>
+    	</div>
         	<div class="row">
 
 				<?php 
