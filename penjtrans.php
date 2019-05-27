@@ -35,6 +35,9 @@ if(empty($_SESSION["admin"])) {
 				<li class="nav-item">
 					<a class="nav-link" href="penjtrans.php">Transaksi</a>
 				</li>
+				<li>
+					<a class="nav-link" href="statistik.php">Statistik</a>
+				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="logout.php">Logout</a>
 				</li>
